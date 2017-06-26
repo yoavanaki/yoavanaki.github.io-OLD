@@ -44,8 +44,24 @@
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-      ga('create', 'UA-78652209-2', 'auto');
+      ga('create', 'UA-78652209-4', 'auto');
       ga('send', 'pageview');
+
+    </script>
+
+    <script>
+    /**
+    * Function that tracks a click on an outbound link in Analytics.
+    * This function takes a valid URL string as an argument, and uses that URL string
+    * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+    * using 'navigator.sendBeacon' in browser that support it.
+    */
+    var trackOutboundLink = function(url) {
+       ga('send', 'event', 'outbound', 'click', url, {
+         'transport': 'beacon',
+         'hitCallback': function(){document.location = url;}
+       });
+    }
     </script>
 
     <!-- Start of Async Drift Code -->
@@ -84,12 +100,13 @@
       s.parentNode.insertBefore(t,s)}(window,document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
       fbq('init', '301761670279553');
-      fbq('track', 'PageView');
+      fbq('track', 'TeamsPageView');
     </script>
     <noscript>
       <img height="1" width="1" src="https://www.facebook.com/tr?id=301761670279553&ev=PageView&noscript=1"/>
     </noscript>
     <!-- End Facebook Pixel Code -->
+
   </head>
   <body id="home" class="marketing-layout">
     <!-- Google Tag Manager (noscript) -->
@@ -135,7 +152,7 @@
           <fieldset>
             <div class="yala-install-buttons yala-install-buttons-lp yala-field-group">
               <span>
-                <a href="https://slack.com/oauth/authorize?&client_id=40439383492.79851682323&scope=bot" class="btn btn-secondary btn-slack">
+                <a href="https://slack.com/oauth/authorize?&client_id=40439383492.79851682323&scope=bot" onclick="trackOutboundLink('http://www.slack.com'); return false;" class="btn btn-secondary btn-slack">
                   <i class="icon icon-slack" aria-hidden="true"></i>
                   Add to <strong>Slack</strong>
                 </a>
@@ -311,7 +328,7 @@
               </ul>
               <p class="text-center">
                 <span>
-                  <a href="https://slack.com/oauth/authorize?&client_id=40439383492.79851682323&scope=bot" class="btn btn-secondary btn-slack">
+                  <a href="https://slack.com/oauth/authorize?&client_id=40439383492.79851682323&scope=bot" onclick="trackOutboundLink('http://www.slack.com'); return false;" class="btn btn-secondary btn-slack">
                     <i class="icon icon-slack" aria-hidden="true"></i>
                     Add to <strong>Slack</strong>
                   </a>
@@ -369,7 +386,7 @@
             <div class="yala-install-buttons yala-field-group">
 
               <span>
-                <a href="https://slack.com/oauth/authorize?&client_id=40439383492.79851682323&scope=bot" class="btn btn-secondary btn-slack">
+                <a href="https://slack.com/oauth/authorize?&client_id=40439383492.79851682323&scope=bot" onclick="trackOutboundLink('http://www.slack.com'); return false;" class="btn btn-secondary btn-slack">
                   <i class="icon icon-slack" aria-hidden="true"></i>
                   Add to <strong>Slack</strong>
                 </a>
